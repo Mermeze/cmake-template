@@ -1,0 +1,8 @@
+#include "PLACEHOLDER_MYPROJ_MYLIB_Export.h"
+#include "PLACEHOLDER_MYPROJ_MYLIB.hpp"
+
+PLACEHOLDER_MYPROJ_MYLIB_EXPORT int PLACEHOLDER_MYPROJ_MYLIB::MyExportedFunction(int i)
+{
+    return i+i;
+}
+

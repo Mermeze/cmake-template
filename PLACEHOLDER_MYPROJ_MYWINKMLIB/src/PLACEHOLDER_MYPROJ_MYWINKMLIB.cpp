@@ -1,0 +1,3 @@
+#include "PLACEHOLDER_MYPROJ_MYWINKMLIB.hpp"
+
+void PLACEHOLDER_MYPROJ_MYWINKMLIB::func() {return;}

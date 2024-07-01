@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
 
-set(CMAKE_CXX_COMPILER_WORKS ON)
-set(CMAKE_C_COMPILER_WORKS ON)
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/FindWDK/cmake")
 find_package(WDK REQUIRED)
 
@@ -43,33 +40,11 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 # Add all projects here.
 #
 
-#
-# First we add the kernel-mode projects as they do not need any special include or lib directories config.
-# These should be build only on Windows. 
-#
 if (MSVC)
     add_subdirectory(PLACEHOLDER_MYPROJ_MYWINKMLIB)
     add_subdirectory(PLACEHOLDER_MYPROJ_MYWINKMDRIVER)
 endif()
 
-#
-# Add the include and library directories from the EWDK, mandatory for UM projects
-#
-include_directories(
-    "$ENV{WindowsSdkDir}\\Include\\$ENV{Version_Number}\\ucrt"
-    "$ENV{WindowsSdkDir}\\Include\\$ENV{Version_Number}\\shared"
-    "$ENV{WindowsSdkDir}\\Include\\$ENV{Version_Number}\\um"
-    "$ENV{VCToolsInstallDir}\\include\\"
-)
-link_directories(
-    "$ENV{WindowsSdkDir}\\Lib\\$ENV{Version_Number}\\um\\$ENV{Platform}\\"
-    "$ENV{WindowsSdkDir}\\Lib\\$ENV{Version_Number}\\ucrt\\$ENV{Platform}\\"
-    "$ENV{VCToolsInstallDir}\\lib\\spectre\\$ENV{Platform}\\"
-)
-
-#
-# Now add all user-mode projects
-#
 add_subdirectory(PLACEHOLDER_MYPROJ_MYEXE)
 add_subdirectory(PLACEHOLDER_MYPROJ_MYLIB)
 add_subdirectory(PLACEHOLDER_MYPROJ_MYSTATICLIB)

@@ -1,11 +1,7 @@
 #include <ntddk.h>
 #include "PLACEHOLDER_MYPROJ_MYWINKMLIB.hpp"
 
-extern "C"
-{
-DRIVER_INITIALIZE DriverEntry;
-DRIVER_UNLOAD DriverUnload;
-}
+extern "C" DRIVER_INITIALIZE DriverEntry;
 
 #ifdef ALLOC_PRAGMA
 #pragma alloc_text(INIT, DriverEntry)

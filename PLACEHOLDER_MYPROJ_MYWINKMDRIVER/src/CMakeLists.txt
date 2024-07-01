@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
 
+#
+# Remove standard libraries (kernel32.lib, user32.lib, etc) as they are incorrect for KM builds.
+#
 set(CMAKE_CXX_STANDARD_LIBRARIES "")
-
-set_property(GLOBAL PROPERTY USER_FOLDERS ON)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /WX")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4 /WX")
+set(CMAKE_C_STANDARD_LIBRARIES "")
+set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES "")
+set(CMAKE_C_STANDARD_INCLUDE_DIRECTORIES "")
 
 wdk_add_driver(PLACEHOLDER_MYPROJ_MYWINKMDRIVER
     PLACEHOLDER_MYPROJ_MYWINKMDRIVER.cpp

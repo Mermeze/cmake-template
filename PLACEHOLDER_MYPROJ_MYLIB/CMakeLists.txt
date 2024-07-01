@@ -4,6 +4,5 @@ project(
     PLACEHOLDER_MYPROJECT_MYLIB
     LANGUAGES C CXX)
 
-enable_testing()
 add_subdirectory(src)
 add_subdirectory(test)

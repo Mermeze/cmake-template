@@ -139,7 +139,8 @@ function(wdk_add_driver _target)
     cmake_parse_arguments(WDK "" "KMDF;WINVER;NTDDI_VERSION" "" ${ARGN})
 
     add_executable(${_target} ${WDK_UNPARSED_ARGUMENTS})
-
+    set_target_properties(${_target} PROPERTIES INCLUDE_DIRECTORIES "")
+    set_target_properties(${_target} PROPERTIES LINK_DIRECTORIES "")
     set_target_properties(${_target} PROPERTIES SUFFIX ".sys")
     set_target_properties(${_target} PROPERTIES COMPILE_OPTIONS "${WDK_COMPILE_FLAGS}")
     set_target_properties(${_target} PROPERTIES COMPILE_DEFINITIONS
@@ -158,7 +159,7 @@ function(wdk_add_driver _target)
 
     target_link_libraries(${_target} WDK::NTOSKRNL WDK::HAL WDK::BUFFEROVERFLOWK WDK::WMILIB)
 
-    if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    if($ENV{Platform} STREQUAL "x86")
         target_link_libraries(${_target} WDK::MEMCMP)
     endif()
 

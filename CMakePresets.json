@@ -1,5 +1,5 @@
 {
-    "version": 6,
+    "version": 7,
     "cmakeMinimumRequired": {
         "major": 3,
         "minor": 23,
@@ -15,7 +15,10 @@
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "MYPROJ_BUILD_SHARED_LIBS": true
+                "MYPROJ_BUILD_SHARED_LIBS": true,
+                "CMAKE_TOOLCHAIN_FILE": "../WindowsToolchain/Windows.EWDK.toolchain.cmake",
+                "VS_EXPERIMENTAL_MODULE": "OFF",
+                "VS_USE_SPECTRE_MITIGATION_RUNTIME": "ON"
             },
             "condition": {
                 "type": "equals",
